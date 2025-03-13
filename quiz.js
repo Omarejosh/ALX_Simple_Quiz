@@ -4,24 +4,27 @@ function checkAnswer() {
     const correctAnswer = "4";
 
     // Retrieve the selected radio button
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
+    const userAnswerValue = document.querySelector('input[name="quiz"]:checked');
 
     // Get the feedback element
     const feedbackElement = document.getElementById("feedback");
 
     // Check if an answer was selected
-    if (userAnswer) {
-        // Compare user's answer with the correct answer
-        if (userAnswer.value === correctAnswer) {
+    if (userAnswerValue) {
+        // Extract the value first
+        const userAnswer = userAnsweValuer.value;
+
+        // Now compare userAnswerValue with correctAnswer
+        if (userAnswer === correctAnswer) {
             feedbackElement.textContent = "Correct! Well done.";
-            feedbackElement.style.color = "green"; // Optional: Change text color for correct answer
+            feedbackElement.style.color = "green";
         } else {
             feedbackElement.textContent = "That's incorrect. Try again!";
-            feedbackElement.style.color = "red"; // Optional: Change text color for incorrect answer
+            feedbackElement.style.color = "red";
         }
     } else {
         feedbackElement.textContent = "Please select an answer.";
-        feedbackElement.style.color = "orange"; // Optional: Indicate no selection
+        feedbackElement.style.color = "orange";
     }
 }
 
